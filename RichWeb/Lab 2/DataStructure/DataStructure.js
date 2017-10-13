@@ -17,6 +17,7 @@ function splitData(data){
     var userArray =[];
     var address = [];
     var id = [];
+    var idAdd = 0;
     for(i = 0;i<data.length;i++){
         userName.push(data[i].username);
         geoObject.push(data[i].address.geo);
@@ -26,12 +27,12 @@ function splitData(data){
 
         }
         id.push(data[i].id);
-        id[i-1] += id[i];
+        idAdd += id[i]
     }
 
     console.log(userName);
     console.log(geoObject);
     console.log(userArray);
     console.log(address);
-    console.log(id);
+    console.log(idAdd);
 }
