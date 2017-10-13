@@ -1,0 +1,28 @@
+#page{
+    width: 40%;
+    margin-left: 30%;
+}
+
+input{
+    width: 200px;
+}
+button{
+    border-radius:20px;
+
+}
+#userProfile{
+    float:left;
+    margin-left:100px;
+}
+#userRepos{
+    float: right;
+    margin-right:100px;
+}
+td{
+    display: block;
+}
+table{
+    margin-top:40px;
+    border: 1px solid black;
+}
+
