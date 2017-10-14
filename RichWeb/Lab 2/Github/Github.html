@@ -6,40 +6,64 @@
     <link rel="stylesheet" type="text/css" href="Github.css">
     <script src="Github.js"></script>
 </head>
-<body>
+<body >
     <div id = "page">
-        <input placeholder = "name" type="text">
-        <button>search</button>
-        <table id="userProfile">
-            <tr>
-                <th><h2>User Profile</h2></th>
+        <div id = "search">
+            <input id = "in" placeholder = "Username" type="text">
+
+            <button onclick = "getUser()">search</button>
+            <h4 id = "error"></h4>
+        </div>
+        <div id ="prof">
+            <h2>User Profile</h2>
+            <table id="profileTable">
+                <tr>
+                    <td><img id = "pic" src = "Capture.PNG"></td>
+                </tr>
+                <tr>
+                    <td id ="profName">name</td>
+                </tr>
+                <tr>
+                <td id ="profUser">User</td>
             </tr>
-            <tr>
-                <td>Name</td>
-                <td>Description</td>
-            </tr>
-        </table>
-        <table id="userRepos">
-            <tr>
-                <th><h2>User Repos</h2></th>
-            </tr>
-            <tr>
-                <td>Name</td>
-                <td>Description</td>
-            </tr>
-            <tr>
-                <td>Name</td>
-                <td>Description</td>
-            </tr>
-            <tr>
-                <td>Name</td>
-                <td>Description</td>
-            </tr>
-            <tr>
-                <td>Name</td>
-                <td>Description</td>
-            </tr>
-        </table>
+                <tr>
+                    <td id ="profEmail">Email</td>
+                </tr>
+                <tr>
+                    <td id ="profLocation">Location</td>
+                </tr>
+                <tr>
+                    <td id ="profGist">Number of Gists</td>
+                </tr>
+
+            </table>
+        </div>
+
+        <div id = "repo">
+            <h2 id = "repoName">User Repos</h2>
+            <table id="repoTable">
+                <tr>
+                    <td id = "repo0">Name<br><br>Description</td>
+                </tr>
+                <tr>
+                    <td id = "repo1">Name<br><br>Description</td>
+                </tr>
+                <tr>
+                    <td id = "repo2">Name<br><br>Description</td>
+                </tr>
+                <tr>
+                    <td id = "repo3">Name<br><br>Description</td>
+                </tr>
+                <tr>
+                    <td id = "repo4">Name<br><br>Description</td>
+                </tr>
+                <tr>
+                    <td id = "repo5">Name<br><br>Description</td>
+                </tr>
+            </table>
+
+        </div>
+
     </div>
 </body>
 </html>

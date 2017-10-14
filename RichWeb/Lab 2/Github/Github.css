@@ -1,28 +1,56 @@
 #page{
-    width: 40%;
-    margin-left: 30%;
+    width: 50%;
+    height: 600px;
+    margin-left: 25%;
 }
 
 input{
-    width: 200px;
+    width: 70%;
+    height: 25px;
+    margin-right:40px;
+}
+#search{
+    margin-top:10px;
+    margin-left: 2%;
 }
 button{
-    border-radius:20px;
-
-}
-#userProfile{
-    float:left;
-    margin-left:100px;
-}
-#userRepos{
-    float: right;
-    margin-right:100px;
+    border-radius:10px;
+    height: 30px;
+    width: 20%;
+    background-color: white;
 }
 td{
-    display: block;
+    width: 100%;
+    border: 1px solid black;
+    padding-left: 2px;
 }
 table{
-    margin-top:40px;
     border: 1px solid black;
+    width: 90%;
+    height: 100%;
+    margin-left:5%;
 }
-
+tr{
+    border:1px solid black;
+}
+img{
+    width: 200px;
+    height: 200px;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin-left: 20%;
+    margin-top: 2%;
+}
+#prof{
+    float:left;
+    width: 49%;
+    height: 90%;
+}
+#repo{
+    float: left;
+    width: 49%;
+    height:90%;
+}
+h2{
+    margin-left: 20px;
+}
