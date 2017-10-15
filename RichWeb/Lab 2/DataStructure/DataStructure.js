@@ -10,16 +10,13 @@ function main(){
     xhttp.send();
 }
 
-
 function splitData(data){
-    var userName = [];
     var geoObject = [];
     var userArray =[];
     var address = [];
     var id = [];
     var idAdd = 0;
     for(i = 0;i<data.length;i++){
-        userName.push(data[i].username);
         geoObject.push(data[i].address.geo);
         userArray.push(new Array(data[i].name,data[i].id,data[i].company.name,data[i].address.zipcode));
         if(data[i].address.zipcode.charAt(0) === '5'){
@@ -29,10 +26,15 @@ function splitData(data){
         id.push(data[i].id);
         idAdd += id[i]
     }
+    var userName = data.map(function (user){
+        return user.name;
+    });
 
     console.log(userName);
     console.log(geoObject);
     console.log(userArray);
     console.log(address);
     console.log(idAdd);
+
+
 }
