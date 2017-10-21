@@ -9,11 +9,9 @@ function changeText(x){
         document.getElementById('inputField').value = null;
 
     }else if(x === '=') {
-        var a = eval(elem.value);
-        document.getElementById('inputField').value = a;
+        document.getElementById('inputField').value = eval(elem.value);
     }else{
         elem.value += x;
-
     }
 
 

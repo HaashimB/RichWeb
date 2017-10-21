@@ -51,6 +51,9 @@ img{
     width: 49%;
     height:90%;
 }
+#repoTable{
+    overflow:scroll;
+}
 h2{
     margin-left: 20px;
 }

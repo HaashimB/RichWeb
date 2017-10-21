@@ -56,9 +56,10 @@ function repoData(data){
         name.push(data[i].name);
         desc.push(data[i].description);
     }
-    for(i = 0;i<6;i++){
-        document.getElementById("repo" + i).innerHTML
-            = "Name: " + name[i] + "<br/>" + "Description:" + desc[i];
-    }
-}
+    for(i = 0;i<name.length;i++){
 
+        document.getElementById("repo" + i).innerHTML
+             = "Name: " + name[i] + "<br/>" + "Description:" + desc[i];
+    }
+
+}
