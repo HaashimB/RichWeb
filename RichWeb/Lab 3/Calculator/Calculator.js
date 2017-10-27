@@ -1,19 +1,21 @@
 
+import Rx from 'rxjs/Rx';
 
-//document.getElementsByTag("button").onclick='changeText()';
 
-function changeText(x){
+const btns = document.getElementsByClassName("flex-item");
+const button$ = Observable.from(btns,'click')
+    .map(btn =>  Observable.fromEvent(btn, 'click')
+    .mapTo(btn.textContent))
+    .mergeAll()
+    .merge(Rx.Observable.fromEvent(document, 'keypress')
+        .pluck('key'));
+document.getElementById('inputField').value = button$.textContent;
 
-    var elem = document.getElementById("inputField");
-    if(x === 'C'){
-        document.getElementById('inputField').value = null;
+button$.subscribe(key => {
+    if (key === 'C') {
+        document.getElementById('inputField').value = key;
 
-    }else if(x === '=') {
+    } else if (key === '=') {
         document.getElementById('inputField').value = eval(elem.value);
-    }else{
-        elem.value += x;
-
     }
-
-
-}
+});

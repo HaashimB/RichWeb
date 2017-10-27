@@ -1,10 +1,27 @@
 {
   "name": "Calculator",
-  "version": "0.0.1",
-  "dependencies": {
-    "rxjs": "^5.5.0"
+  "version": "1.0.0",
+  "description": "Question 1 of lab 3, Calculator",
+  "main": "./Calculator.js",
+  "scripts": {
+    "build": "webpack",
+    "start": "webpack-dev-server --hot"
   },
+  "author": "Haashim Bari",
+  "license": "ISC",
   "devDependencies": {
-    "webpack": "^3.8.1"
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "jshint": "^2.9.5",
+    "jshint-loader": "^0.8.4",
+    "node-libs-browser": "^2.0.0",
+    "webpack": "^3.7.1"
+  },
+  "dependencies": {
+    "rxjs": "^5.4.3",
+    "webpack-dev-server": "^2.9.2"
   }
 }
