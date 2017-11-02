@@ -14,7 +14,7 @@ const button$ = Rx.Observable.from(calcButtons,'click')
 button$.subscribe(key => {
     if(screen){
         document.getElementById('inputField').value = key;
-        screen = true;
+        screen = false;
     }else{
         screen = false;
     }

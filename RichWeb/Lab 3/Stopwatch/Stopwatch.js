@@ -1,22 +1,22 @@
 import Rx from 'rxjs/Rx';
 
 
-const digital = document.getElementById('digital');
-const splitsList = document.getElementById('splits-list');
+const digi= document.getElementById('digi');
+const splits = document.getElementById('splits');
 
-const source = Rx.Observable
+const obsv = Rx.Observable
     .interval(100 /* ms */ )
     .timeInterval();
 
 let started = false;
 let time = 0; // 1/10 seconds
 
-const subscription = source.subscribe(
+const subscription = obsv.subscribe(
     x => {
         if(started){
             time++;
             //draw(time);
-            digital.innerHTML = Math.floor(time / 600) + ":" + Math.floor((time / 10) % 60) + ":" + (time % 10) + "0";
+            digi.innerHTML = Math.floor(time / 600) + ":" + Math.floor((time / 10) % 60) + ":" + (time % 10) + "0";
         }
 
     });
@@ -33,7 +33,7 @@ Rx.Observable.fromEvent(document.getElementById('stop'), 'click')
 
 Rx.Observable.fromEvent(document.getElementById('split'), 'click')
     .subscribe(e => {
-        splitsList.innerHTML += digital.innerHTML + "<br/>";
+        splits.innerHTML += digi.innerHTML + "<br/>";
     });
 
 Rx.Observable.fromEvent(document.getElementById('reset'), 'click')
@@ -41,8 +41,8 @@ Rx.Observable.fromEvent(document.getElementById('reset'), 'click')
         started = false;
         time = 0;
         //draw(time);
-        digital.innerHTML = "0:0:00";
-        splitsList.innerHTML = "";
+        digi.innerHTML = "0:0:00";
+        splits.innerHTML = "";
     });
 
 const c = document.getElementById('canvas');
