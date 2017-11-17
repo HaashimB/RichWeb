@@ -1,54 +1,135 @@
 import React from 'react';
-//import Rx from 'rxjs/Rx';
 import axios from 'axios';
 
 
 
 
-class App extends React.Component{
+class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             data: [],
-            query: props.query
+            inputValue: '',
+            query: props.query,
+            dropDown: 'people'
         };
-    }
+    };
+
     componentWillUpdate(){
         axios({
             method:'get',
             baseURL:'https://swapi.co/api/',
-            url: 'people/?search=' + this.state.query
+            url: this.state.dropDown + '/?search=' + this.state.inputValue
         })
             .then(response => {
                 let data = response.data.results.map(obj => obj);
-                console.log(data);
                 this.setState({data});
 
             });
     }
 
-    update(e){
-        this.setState({query: e.target.value})
+    updateInputValue(evt){
+        this.setState({
+            inputValue: evt.target.value
+        });
     }
-    render(){
-        // return React.createElement('h1',null,'EGG BOY')
-        //console.log(data);
+
+    updateDropdown(event){
+        this.setState({
+            dropDown: event.target.value
+        });
+        console.log(this.state.dropDown);
+    }
 
 
-        return(
-            <div>
-                <input id = "query"  type = "text" placeholder = "Luke Skywalker"/>
-                <button onClick ={ this.update.bind(this) }>Search</button>
-                <h1>{this.state.query}</h1>
-                <ul>
-                    {this.state.data.map(post =>
-                        <li>{post.name}</li>
-                    )}
-                </ul>
+    render() {
+        const divStyle = {
+            marginLeft: '25%',
+            marginRight:'25%',
+            height:'500px',
+
+        };
+        const divStyle1 = {
+            textAlign: 'center'
+        };
+        return (
+            <div style={divStyle}>
+                <div style = {divStyle1}>
+                    <input placeholder="Luke Skywalker" type = "text" onChange = {e => this.updateInputValue(e)}/>
+
+                    <select onChange = {event => this.updateDropdown(event)}>
+                        <option value = "people">People</option>
+                        <option value = "films">Films</option>
+                        <option value = "species">Species</option>
+                        <option value = "vehicles">Vehicles</option>
+                        <option value = "starships">Starships</option>
+                        <option value = "planets">Planes</option>
+                    </select>
+                    <h1>{this.state.query}</h1>
+
+                    <div>
+                        {this.state.data.map((dynamicComponent) => <Content
+                            desc = {dynamicComponent.name} data = {dynamicComponent}/>)}
+                    </div>
+                </div>
             </div>
-        )
+
+        );
+    }
+
+}
+
+class Content extends React.Component {
+
+    render() {
+        const divStyle = {
+            webkitTextFillColor: 'white'
+        };
+        let data = Object.values(this.props.data);
+        let desc = Object.keys(this.props.data);
+        return (
+            <div style = {divStyle}>
+
+                <div>{desc[0]} : {data[0]}</div>
+                <div>{desc[1]} : {data[1]}</div>
+                <div>{desc[2]} : {data[2]}</div>
+                <div>{desc[3]} : {data[3]}</div>
+                <div>{desc[4]} : {data[4]}</div>
+                <div>{desc[5]} : {data[5]}</div>
+                <div>{desc[6]} : {data[6]}</div>
+
+            </div>
+        );
     }
 }
 
-
 export default App
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
