@@ -3,13 +3,12 @@ import axios from 'axios';
 
 
 
-
 class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             data: [],
-            inputValue: '',
+            inputValue: 'Luke Skywalker',
             query: props.query,
             dropDown: 'people'
         };
@@ -44,16 +43,33 @@ class App extends React.Component {
 
     render() {
         const divStyle = {
-            marginLeft: '25%',
-            marginRight:'25%',
-            height:'500px',
+            marginLeft: '5%',
+            marginRight:'5%',
+            height:'100vh',
+            style: 'flex',
+            backgroundColor:'rgba(255, 255, 255, 0.3)',
+
 
         };
         const divStyle1 = {
-            textAlign: 'center'
+            textAlign: 'center',
+            opacity:'1.5'
+        };
+        const divImgStyle = {
+            paddingTop:'1%',
+            marginBottom:'1%',
+            marginLeft: '37.5%',
+        };
+        const imgStyle = {
+            width: '400px',
+            height:'150px',
         };
         return (
             <div style={divStyle}>
+                <div style = {divImgStyle}>
+                    <img style = {imgStyle} src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Star_Wars_Yellow_Logo.svg/2000px-Star_Wars_Yellow_Logo.svg.png'/>
+                </div>
+
                 <div style = {divStyle1}>
                     <input placeholder="Luke Skywalker" type = "text" onChange = {e => this.updateInputValue(e)}/>
 
@@ -83,20 +99,43 @@ class Content extends React.Component {
 
     render() {
         const divStyle = {
-            webkitTextFillColor: 'white'
+            marginLeft: '3%',
+            marginRight:'3%',
+            display: 'flex',
+            backgroundColor:'rgba(50, 50, 50, 0.7)',
+            alignItems: 'center',
+            justifyContent: 'center',
+        };
+        const divStyle1 = {
+            flex: '1',
+            height: '110px',
+            overflowY: 'auto',
+        };
+        const h3Style1 = {
+            textTransform: 'uppercase',
+            borderColor: '#0ea4ef',
+            borderTopStyle: 'solid',
+            webkitTextFillColor: '#0970ef',
+            fontFamily: 'Arial',
+
+        };
+        const h3Style2 = {
+            borderBottomStyle: 'solid',
+            borderColor: '#dd0d0d',
+            webkitTextFillColor: '#dd0d0d',
+            fontFamily: 'Arial',
         };
         let data = Object.values(this.props.data);
         let desc = Object.keys(this.props.data);
         return (
             <div style = {divStyle}>
 
-                <div>{desc[0]} : {data[0]}</div>
-                <div>{desc[1]} : {data[1]}</div>
-                <div>{desc[2]} : {data[2]}</div>
-                <div>{desc[3]} : {data[3]}</div>
-                <div>{desc[4]} : {data[4]}</div>
-                <div>{desc[5]} : {data[5]}</div>
-                <div>{desc[6]} : {data[6]}</div>
+                <div style = {divStyle1}><h3 style = {h3Style1}>{desc[0]}</h3><h3 style = {h3Style2}>{data[0]}</h3></div>
+                <div style = {divStyle1}><h3 style = {h3Style1}>{desc[1]}</h3><h3 style = {h3Style2}>{data[1]}</h3></div>
+                <div style = {divStyle1}><h3 style = {h3Style1}>{desc[2]}</h3><h3 style = {h3Style2}>{data[2]}</h3></div>
+                <div style = {divStyle1}><h3 style = {h3Style1}>{desc[3]}</h3><h3 style = {h3Style2}>{data[3]}</h3></div>
+                <div style = {divStyle1}><h3 style = {h3Style1}>{desc[4]}</h3><h3 style = {h3Style2}>{data[4]}</h3></div>
+                <div style = {divStyle1}><h3 style = {h3Style1}>{desc[5]}</h3><h3 style = {h3Style2}>{data[5]}</h3></div>
 
             </div>
         );
